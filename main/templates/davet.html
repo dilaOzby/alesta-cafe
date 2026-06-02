@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davet &amp; Organizasyon — Alesta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/panel.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/davet.css' %}" />
+</head>
+<body class="panel-page">
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="{% url 'main:index' %}" class="logo">
+        <span class="logo-main">ALESTA</span>
+        <span class="logo-sub">CAFE &amp; RESTAURANT</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'main:hakkimizda' %}" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="{% url 'main:menu' %}" data-tr="Menü" data-en="Menu">Menü</a></li>
+        <li><a href="{% url 'main:davet' %}" class="nav-active" data-tr="Davet &amp; Organizasyon" data-en="Events">Davet &amp; Organizasyon</a></li>
+        <li><a href="{% url 'main:iletisim' %}" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+        <li><a href="{% url 'main:rezervasyon' %}" class="nav-cta" data-tr="Rezervasyon" data-en="Reservation">Rezervasyon</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="ig-nav" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <div class="lang">
+          <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="split-layout">
+
+    <div class="split-left">
+      <div class="split-overlay"></div>
+      <div class="split-left-content">
+        <h1 class="split-title">ALESTA</h1>
+        <div class="split-line"></div>
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="split-ig">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>@alesta_cafe</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="split-right">
+      <div class="split-right-inner">
+
+        <p class="panel-eyebrow" data-tr="<em>Özel Anlarınız İçin</em>" data-en="<em>For Your Special Moments</em>"><em>Özel Anlarınız İçin</em></p>
+        <h2 class="panel-title" data-tr="Davet &amp;<br>Organizasyon" data-en="Events &amp;<br>Organisation">Davet &amp;<br>Organizasyon</h2>
+        <div class="panel-line"></div>
+
+        <p class="davet-desc"
+           data-tr="Doğum günleriniz, evlilik teklifleriniz ya da özel grup buluşmalarınız için Alesta'nın atmosferinde unutulmaz anlar yaratıyoruz. Talebinizi bırakın, ekibimiz en kısa sürede sizinle iletişime geçsin."
+           data-en="For your birthdays, marriage proposals or group gatherings, we create unforgettable moments at Alesta. Leave your request and our team will contact you shortly.">
+          Doğum günleriniz, evlilik teklifleriniz ya da özel grup buluşmalarınız için Alesta'nın atmosferinde unutulmaz anlar yaratıyoruz. Talebinizi bırakın, ekibimiz en kısa sürede sizinle iletişime geçsin.
+        </p>
+
+        <form class="davet-form" action="{% url 'main:davet' %}" method="POST">
+          {% csrf_token %}
+
+          <div class="form-row">
+            <div class="form-group">
+              <label data-tr="Ad Soyad" data-en="Full Name">Ad Soyad</label>
+              <input type="text" name="ad_soyad" required />
+            </div>
+            <div class="form-group">
+              <label data-tr="Telefon" data-en="Phone">Telefon</label>
+              <input type="tel" name="telefon" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-tr="Organizasyon Türü" data-en="Event Type">Organizasyon Türü</label>
+            <select name="organizasyon_turu" required>
+              <option value="" disabled selected>Seçiniz</option>
+              <option value="dogum_gunu">Doğum Günü</option>
+              <option value="evlilik_teklifi">Evlilik Teklifi</option>
+              <option value="grup_masasi">Grup Masası</option>
+              <option value="ozel_kutlama">Özel Kutlama</option>
+              <option value="diger">Diğer</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label data-tr="Tarih" data-en="Date">Tarih</label>
+              <input type="date" name="tarih" required />
+            </div>
+            <div class="form-group">
+              <label data-tr="Saat Aralığı" data-en="Time Range">Saat Aralığı</label>
+              <input type="text" name="saat_araligi" placeholder="ör. 19:00 – 22:00" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label data-tr="Kişi Sayısı" data-en="No. of Guests">Kişi Sayısı</label>
+              <input type="number" name="kisi_sayisi" min="1" placeholder="ör. 15" />
+            </div>
+            <div class="form-group">
+              <label data-tr="Alan Tercihi" data-en="Area Preference">Alan Tercihi</label>
+              <select name="alan_tercihi">
+                <option value="" disabled selected>Seçiniz</option>
+                <option value="ic_alan">İç Alan</option>
+                <option value="acik_alan">Açık Alan</option>
+                <option value="fark_etmez">Fark Etmez</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-tr="Notlar / Özel İstek" data-en="Notes / Special Request">Notlar / Özel İstek</label>
+            <textarea name="notlar" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            <span data-tr="Talep Gönder" data-en="Send Request">Talep Gönder</span>
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rezervasyon — Alesta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/panel.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/rezervasyon.css' %}" />
+</head>
+<body class="panel-page">
+
+  <!-- NAVBAR -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="{% url 'main:index' %}" class="logo">
+        <span class="logo-main">ALESTA</span>
+        <span class="logo-sub">CAFE &amp; RESTAURANT</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'main:hakkimizda' %}" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="{% url 'main:menu' %}" data-tr="Menü" data-en="Menu">Menü</a></li>
+        <li><a href="{% url 'main:davet' %}" data-tr="Davet &amp; Organizasyon" data-en="Events">Davet &amp; Organizasyon</a></li>
+        <li><a href="{% url 'main:iletisim' %}" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+        <li><a href="{% url 'main:rezervasyon' %}" class="nav-cta" data-tr="Rezervasyon" data-en="Reservation">Rezervasyon</a></li>
+      </ul>
+
+      
+      <div class="nav-right">
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="ig-nav" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <div class="lang">
+          <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- LAYOUT -->
+  <div class="split-layout">
+
+    <!-- SOL -->
+    <div class="split-left">
+      <div class="split-overlay"></div>
+      <div class="split-left-content">
+        <h1 class="split-title">ALESTA</h1>
+        <div class="split-line"></div>
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="split-ig">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>@alesta_cafe</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SAĞ -->
+    <div class="split-right">
+      <div class="split-right-inner">
+
+        <p class="panel-eyebrow"><em data-tr="Yerinizi Ayırtın" data-en="Book Your Table">Yerinizi Ayırtın</em></p>
+        <h2 class="panel-title" data-tr="Rezervasyon" data-en="Reservation">Rezervasyon</h2>
+        <div class="panel-line"></div>
+
+        <p class="rez-desc"
+           data-tr="Karadeniz'in kıyısında, güneş batarken deniz kenarında bir masa ve güzel bir sohbet için yerinizi ayırtın."
+           data-en="Reserve your table by the Black Sea — for a sunset, a good conversation and a moment worth remembering.">
+          Karadeniz'in kıyısında, güneş batarken deniz kenarında bir masa ve güzel bir sohbet için yerinizi ayırtın.
+        </p>
+
+        <a href="https://wa.me/905314300510" target="_blank" class="rez-btn">
+          <span data-tr="Rezervasyon Yap" data-en="Make a Reservation">Rezervasyon Yap</span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+ <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

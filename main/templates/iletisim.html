@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İletişim — Alesta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/panel.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/iletisim.css' %}" />
+</head>
+<body class="panel-page">
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="{% url 'main:index' %}" class="logo">
+        <span class="logo-main">ALESTA</span>
+        <span class="logo-sub">CAFE &amp; RESTAURANT</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'main:hakkimizda' %}" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="{% url 'main:menu' %}" data-tr="Menü" data-en="Menu">Menü</a></li>
+        <li><a href="{% url 'main:davet' %}" data-tr="Davet &amp; Organizasyon" data-en="Events">Davet &amp; Organizasyon</a></li>
+        <li><a href="{% url 'main:iletisim' %}" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+        <li><a href="{% url 'main:rezervasyon' %}" class="nav-cta" data-tr="Rezervasyon" data-en="Reservation">Rezervasyon</a></li>
+      </ul>
+
+      
+      <div class="nav-right">
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="ig-nav" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <div class="lang">
+          <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="split-layout">
+
+    <!-- SOL -->
+    <div class="split-left">
+      <div class="split-overlay"></div>
+      <div class="split-left-content">
+        <h1 class="split-title">ALESTA</h1>
+        <div class="split-line"></div>
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="split-ig">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>@alesta_cafe</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SAĞ -->
+    <div class="split-right">
+      <div class="split-right-inner">
+
+        <p class="panel-eyebrow"><em data-tr="Bize Ulaşın" data-en="Get in Touch">Bize Ulaşın</em></p>
+        <h2 class="panel-title" data-tr="İletişim" data-en="Contact">İletişim</h2>
+        <div class="panel-line"></div>
+
+        <div class="contact-block">
+          <span class="contact-label" data-tr="Adres" data-en="Address">Adres</span>
+          <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x40636c5c033fe89d:0xea56d82c84bf5a72" target="_blank" class="contact-value contact-link">
+            Kumyalı, Cumhuriyet Parkı<br>28200 Giresun Merkez / Giresun
+          </a>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-label" data-tr="Telefon" data-en="Phone">Telefon</span>
+          <a href="tel:+905314300510" class="contact-value contact-link">0531 430 05 10</a>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-label" data-tr="E-Posta" data-en="E-Mail">E-Posta</span>
+          <a href="mailto:alestacafe28@gmail.com" class="contact-value contact-link">alestacafe28@gmail.com</a>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-label" data-tr="Sosyal Medya" data-en="Social Media">Sosyal Medya</span>
+          <a href="https://instagram.com/alesta_cafe" target="_blank" class="contact-value contact-link">@alesta_cafe</a>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-label" data-tr="Çalışma Saatleri" data-en="Opening Hours">Çalışma Saatleri</span>
+          <p class="contact-value" data-tr="Her gün açık<br>09:00 — 02:00" data-en="Open every day<br>09:00 — 02:00">Her gün açık<br>09:00 — 02:00</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alesta Cafe & Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+</head>
+<body>
+
+  <nav id="nav"> 
+    <div class="nav-inner">
+      <a href="{% url 'main:index' %}" class="logo">
+        <span class="logo-main">ALESTA</span>
+        <span class="logo-sub">CAFE &amp; RESTAURANT</span>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'main:hakkimizda' %}" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="{% url 'main:menu' %}" data-tr="Menü" data-en="Menu">Menü</a></li>
+        <li><a href="{% url 'main:davet' %}" data-tr="Davet &amp; Organizasyon" data-en="Events">Davet &amp; Organizasyon</a></li>
+        <li><a href="{% url 'main:iletisim' %}" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+        <li><a href="{% url 'main:rezervasyon' %}" class="nav-cta" data-tr="Rezervasyon" data-en="Reservation">Rezervasyon</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="ig-nav" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+
+        <div class="lang">
+          <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="hero">
+    <div class="hero-content">
+      <p class="hero-est">Est. 2009</p>
+      <h1 class="hero-title">ALESTA</h1>
+      <div class="hero-line"></div>
+      <p class="hero-tag"
+         data-tr="Lezzetin ve Anların Buluştuğu Yer"
+         data-en="Where Flavour Meets the Moment">
+        Lezzetin ve Anların Buluştuğu Yer
+      </p>
+      <a href="{% url 'main:menu' %}" class="hero-btn" data-tr="Menüyü Keşfet" data-en="Explore Menu">Menüyü Keşfet</a>
+    </div>
+
+    <a href="https://instagram.com/alesta_cafe" target="_blank" class="ig-corner" aria-label="Instagram">
+      <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="ig-handle">@alesta_cafe</span>
+    </a>
+
+    <div class="scroll-line"></div>
+  </main>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

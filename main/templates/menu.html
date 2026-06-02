@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menü — Alesta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/panel.css' %}">
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+
+<body class="panel-page">
+
+  <!-- NAVBAR -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="{% url 'main:index' %}" class="logo">
+        <span class="logo-main">ALESTA</span>
+        <span class="logo-sub">CAFE &amp; RESTAURANT</span>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'main:hakkimizda' %}">Hakkımızda</a></li>
+        <li><a href="{% url 'main:menu' %}" class="nav-active">Menü</a></li>
+        <li><a href="{% url 'main:davet' %}">Davet &amp; Organizasyon</a></li>
+        <li><a href="{% url 'main:iletisim' %}">İletişim</a></li>
+        <li><a href="{% url 'main:rezervasyon' %}" class="nav-cta">Rezervasyon</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="ig-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </a>
+
+        <div class="lang">
+          <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+          <span>/</span>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- LAYOUT -->
+  <div class="split-layout">
+
+    <!-- SOL -->
+    <div class="split-left">
+      <div class="split-overlay"></div>
+      <div class="split-left-content">
+        <h1 class="split-title">ALESTA</h1>
+        <div class="split-line"></div>
+
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="split-ig">
+          <span>@alesta_cafe</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SAĞ -->
+    <div class="split-right">
+      <div class="split-right-inner">
+
+        <!-- MENU.HTML - YENİ VE DOĞRU KISIM -->
+          <p class="panel-eyebrow"><em data-tr="Lezzetlerimiz" data-en="Our Flavours">Lezzetlerimiz</em></p>
+          <h2 class="panel-title" data-tr="Menü" data-en="Menu">Menü</h2>
+        <div class="panel-line"></div>
+
+        <div class="menu-content">
+          <p class="menu-desc" 
+          data-tr="Taze malzemeler ve özenle hazırlanan tariflerle sunduğumuz menümüzü incelemek için aşağıdan PDF olarak görüntüleyebilirsiniz."
+         data-en="You can view our menu below as a PDF to explore our dishes prepared with fresh ingredients and carefully crafted recipes.">
+          Taze malzemeler ve özenle hazırlanan tariflerle sunduğumuz menümüzü incelemek için aşağıdan PDF olarak görüntüleyebilirsiniz.
+          </p>
+        </div>
+
+          <!-- TR -->
+          <div id="menuBtnTR">
+            <a href="{% static 'pdf/alesta_menu_Tr.pdf' %}" target="_blank" class="menu-btn">
+              Menüyü Görüntüle
+            </a>
+          </div>
+
+          <!-- EN -->
+          <div id="menuBtnEN" style="display:none;">
+            <a href="{% static 'pdf/alesta_menu_en.pdf' %}" target="_blank" class="menu-btn">
+              View Menu
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <script>
+    function setLang(lang) {
+      localStorage.setItem('alesta-lang', lang);
+
+      document.getElementById('menuBtnTR').style.display = lang === 'tr' ? 'block' : 'none';
+      document.getElementById('menuBtnEN').style.display = lang === 'en' ? 'block' : 'none';
+    }
+
+    const currentLang = localStorage.getItem('alesta-lang') || 'tr';
+    setLang(currentLang);
+  </script>
+
+</body>
+</html>

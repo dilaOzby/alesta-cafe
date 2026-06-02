@@ -1,0 +1,49 @@
+.rez-desc {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(245,240,232,.72);
+  margin-bottom: 48px;
+}
+
+
+.rez-btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--anthracite);
+  background: var(--coffee);
+  border: 1px solid var(--coffee);
+  padding: 15px 44px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color .35s, background .35s;
+}
+
+.rez-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border: 1px solid var(--coffee);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+  z-index: 0;
+}
+
+.rez-btn span { position: relative; z-index: 1; }
+
+.rez-btn:hover {
+  color: var(--cream);
+  background: transparent;
+}
+
+@media (max-width: 600px) {
+  .rez-btn { display: block; text-align: center; }
+}

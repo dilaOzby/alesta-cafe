@@ -1,0 +1,105 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hakkımızda — Alesta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/panel.css' %}" />
+</head>
+<body class="panel-page">
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="{% url 'main:index' %}" class="logo">
+        <span class="logo-main">ALESTA</span>
+        <span class="logo-sub">CAFE &amp; RESTAURANT</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'main:hakkimizda' %}" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+        <li><a href="{% url 'main:menu' %}" data-tr="Menü" data-en="Menu">Menü</a></li>
+        <li><a href="{% url 'main:davet' %}" data-tr="Davet &amp; Organizasyon" data-en="Events">Davet &amp; Organizasyon</a></li>
+        <li><a href="{% url 'main:iletisim' %}" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+        <li><a href="{% url 'main:rezervasyon' %}" class="nav-cta" data-tr="Rezervasyon" data-en="Reservation">Rezervasyon</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="ig-nav" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <div class="lang">
+          <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="split-layout">
+    <div class="split-left">
+      <div class="split-overlay"></div>
+      <div class="split-left-content">
+        <h1 class="split-title">ALESTA</h1>
+        <div class="split-line"></div>
+        <a href="https://instagram.com/alesta_cafe" target="_blank" class="split-ig">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>@alesta_cafe</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="split-right">
+      <div class="split-right-inner">
+        <p class="panel-eyebrow" data-tr='Alesta; denizcilik dilinde "hazır ol, yelkenler açık" anlamına gelir.' data-en="Alesta means 'ready, sails open' in nautical language."><em>Alesta; denizcilik dilinde "hazır ol, yelkenler açık" anlamına gelir.</em></p>
+        <h2 class="panel-title" data-tr="Denizin Sesi,<br>Şehrin Ruhu" data-en="The Voice of the Sea,<br>the Soul of the City">Denizin Sesi,<br>Şehrin Ruhu</h2>
+        <div class="panel-line"></div>
+
+        <div class="panel-block">
+          <span class="panel-label" data-tr="2009'dan Bugüne" data-en="Since 2009">2009'dan Bugüne</span>
+          <p data-tr="2009 yılından bu yana Giresun'un kalbinde, Karadeniz'in hemen kıyısında misafirlerimizi ağırlıyoruz. Şehrin en köklü kafelerinden biri olma gururuyla, kurulduğumuz ilk günkü heyecanımızı ve samimiyetimizi koruyoruz. Geniş açık alanımız, huzur veren deniz manzaramız ve merkezi konumumuzla; Alesta'yı sadece bir kafe değil, unutulmaz anıların biriktiği bir buluşma noktası haline getirdik." data-en="Since 2009, we have been welcoming our guests in the heart of Giresun, right on the shores of the Black Sea. With the pride of being one of the city's most established cafés, we preserve the excitement and sincerity of our very first day. With our spacious open area, soothing sea view and central location, Alesta has become not just a café, but a meeting point where unforgettable memories are made.">2009 yılından bu yana Giresun'un kalbinde, Karadeniz'in hemen kıyısında misafirlerimizi ağırlıyoruz. Şehrin en köklü kafelerinden biri olma gururuyla, kurulduğumuz ilk günkü heyecanımızı ve samimiyetimizi koruyoruz. Geniş açık alanımız, huzur veren deniz manzaramız ve merkezi konumumuzla; Alesta'yı sadece bir kafe değil, unutulmaz anıların biriktiği bir buluşma noktası haline getirdik.</p>
+        </div>
+
+        <div class="panel-block">
+          <span class="panel-label" data-tr="Yenilenen Çehre, Değişmeyen Ruh" data-en="Renewed Face, Unchanged Soul">Yenilenen Çehre, Değişmeyen Ruh</span>
+          <p data-tr="Eylül 2025'te yaşadığımız üzücü yangının ardından, Alesta'yı küllerinden yeniden doğurduk. Geçmişin ahşap sıcaklığını bugünün modern çizgileriyle harmanladık; çok daha ferah ve modern bir atmosfer yarattık. Binamız baştan aşağı yenilenmiş olsa da misafirperverlik ilkelerimiz ve ödün vermediğimiz lezzet anlayışımız ilk günkü gibi yerinde duruyor." data-en="After the devastating fire of September 2025, we reborn Alesta from its ashes. We blended the warmth of the past with modern lines, creating a much fresher atmosphere. Though our building is entirely new, our hospitality principles and uncompromising quality remain as they were on day one.">Eylül 2025'te yaşadığımız üzücü yangının ardından, Alesta'yı küllerinden yeniden doğurduk. Geçmişin ahşap sıcaklığını bugünün modern çizgileriyle harmanladık; çok daha ferah ve modern bir atmosfer yarattık. Binamız baştan aşağı yenilenmiş olsa da misafirperverlik ilkelerimiz ve ödün vermediğimiz lezzet anlayışımız ilk günkü gibi yerinde duruyor.</p>
+        </div>
+
+        <div class="panel-block">
+          <p data-tr="İlk günden bu yana aynı özenle sürdürülen işletmemiz; kaliteli nargile seçkisi ve Alesta'ya özel hazırlanan el yapımı kokteylleriyle adından söz ettirmeye devam ediyor. Misafirlerimize sunduğumuz deneyimin temelinde her zaman kalite ve samimiyet yer alıyor." data-en="Our establishment, run with the same care since day one, continues to make a name for itself with its quality hookah selection and handcrafted cocktails. Quality and sincerity have always been at the heart of the experience we offer.">İlk günden bu yana aynı özenle sürdürülen işletmemiz; kaliteli nargile seçkisi ve Alesta'ya özel hazırlanan el yapımı kokteyliyle adından söz ettirmeye devam ediyor. Misafirlerimize sunduğumuz deneyimin temelinde her zaman kalite ve samimiyet yer alıyor.</p>
+        </div>
+
+        <div class="panel-block panel-rules">
+          <span class="panel-label" data-tr="Küçük Bir Not" data-en="A Small Note">Küçük Bir Not</span>
+          <div class="rule-item">
+            <span>•</span>
+            <p data-tr="Patili dostlarimizi açik alanimizda ağırlamaktan mutluluk duyarız; iç mekânımıza kabul edemediğimiz için anlayışınıza sığınıyoruz." data-en="We happily welcome your furry friends in our outdoor area; we kindly ask for your understanding regarding our indoor policy.">Patili dostlarımızı açık alanımızda ağırlamaktan mutluluk duyarız; iç mekânımıza kabul edemediğimiz için anlayışınıza sığınıyoruz.</p>
+          </div>
+          <div class="rule-item">
+            <span>•</span>
+            <p data-tr="Hijyen ve hizmet kalitemizi korumak adına tuvalet kullanımımız yalnızca misafirlerimize özeldir." data-en="To maintain our hygiene and service quality, our restrooms are reserved exclusively for our guests.">Hijyen ve hizmet kalitemizi korumak adına tuvalet kullanımımız yalnızca misafirlerimize özeldir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
